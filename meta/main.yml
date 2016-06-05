@@ -3,7 +3,7 @@ galaxy_info:
   author: "Matthew Green"
   company: New Edge Engineering
   license: BSD
-  min_ansible_version: 1.4
+  min_ansible_version: 2.0
   platforms:
    - name: EL
      versions:
@@ -14,13 +14,24 @@ galaxy_info:
       - 16
       - 17
       - 18
+      - 19
+      - 20
+   - name: opensuse
+     versions:
+      - 13.1
+      - 13.2
    - name: Ubuntu
      versions:
       - precise
       - quantal
       - raring
       - saucy
+      - trusty
+   - name: FreeBSD
+     versions:
+      - 10.0
   categories:
    - web
+allow_duplicates: yes
 dependencies: []
 
