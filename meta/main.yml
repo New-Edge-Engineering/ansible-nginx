@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  author: "Benno Joy"
-  company: AnsibleWorks
+  author: "Matthew Green"
+  company: New Edge Engineering
   license: BSD
   min_ansible_version: 1.4
   platforms:
@@ -23,4 +23,4 @@ galaxy_info:
   categories:
    - web
 dependencies: []
-  
+
