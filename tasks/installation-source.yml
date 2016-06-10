@@ -60,8 +60,8 @@
     src: debian_service
     mode: 0755
 
-- name: Restart the nginx service
+- name: Start the nginx service
   service:
     name: nginx
-    state: started
+    state: restarted
     enabled: yes

@@ -20,7 +20,7 @@ nginx_official_repo_mainline: False
 
 keep_only_specified: False
 
-nginx_installation_type: "packages" # or source
+nginx_installation_type: "packages" # or source or configuration-only
 nginx_binary_name: "nginx"
 nginx_service_name: "{{nginx_binary_name}}"
 nginx_conf_dir: "{% if ansible_os_family == 'FreeBSD' %}/usr/local/etc/nginx{% else %}/etc/nginx{% endif %}"
