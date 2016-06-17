@@ -11,3 +11,4 @@ nginx_tmp: /tmp
 nginx_make_async: 900
 
 nginx_owner: www-data
+nginx_group: www-data
