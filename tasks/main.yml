@@ -1,17 +1,17 @@
 ---
-- include: nginx-official-repo.yml
+- import_tasks: nginx-official-repo.yml
   when: nginx_official_repo == True
-- include: installation-packages.yml
+- import_tasks: installation-packages.yml
   when: nginx_installation_type == "packages"
-- include: installation-source.yml
+- import_tasks: installation-source.yml
   when: nginx_installation_type == "source"
-- include: ensure-dirs.yml
-- include: remove-defaults.yml
+- import_tasks: ensure-dirs.yml
+- import_tasks: remove-defaults.yml
   when: not keep_only_specified
-- include: remove-extras.yml
+- import_tasks: remove-extras.yml
   when: keep_only_specified
-- include: remove-unwanted.yml
-- include: configuration.yml
+- import_tasks: remove-unwanted.yml
+- import_tasks: configuration.yml
 
 - name: Start the nginx service
   service: name={{ nginx_service_name }} state=started enabled=yes

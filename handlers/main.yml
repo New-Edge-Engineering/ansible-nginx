@@ -18,7 +18,7 @@
   shell: "{{ nginx_binary_name }} -t"
   register: result
   changed_when: "result.rc != 0"
-  always_run: yes
+  check_mode: no
   when: nginx_installation_type in nginx_installation_types_using_service
 
 - name: restart nginx - after config check
@@ -28,3 +28,9 @@
 - name: reload nginx - after config check
   service: name={{ nginx_service_name }} state=reloaded
   when: nginx_installation_type in nginx_installation_types_using_service and nginx_daemon_mode == "on"
+
+- name: restart nginx with daemon reload
+  systemd:
+    daemon_reload: yes
+    name: nginx
+    state: restarted
