@@ -76,6 +76,7 @@
     group: root
     mode: 0644
     owner: root
+  when: rlimit_nofile_removed|changed
   notify:
     - restart nginx with daemon reload
   tags: [configuration,nginx]
