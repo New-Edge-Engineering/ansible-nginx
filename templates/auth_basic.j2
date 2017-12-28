@@ -1,4 +1,4 @@
-#{{ ansible_managed }}
+{{ ansible_managed|comment }}
 
 {% for v in nginx_auth_basic_files[item] %}
 {{ v }}

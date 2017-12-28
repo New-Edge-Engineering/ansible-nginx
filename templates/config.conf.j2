@@ -1,4 +1,4 @@
-#{{ ansible_managed }}
+{{ ansible_managed|comment }}
 
 {% for v in nginx_configs[item] %}
 {% if v.find('\n') != -1 %}

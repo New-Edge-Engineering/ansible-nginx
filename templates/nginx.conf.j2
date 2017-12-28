@@ -1,4 +1,4 @@
-#{{ ansible_managed }}
+{{ ansible_managed|comment }}
 user              {{ nginx_user }}  {{ nginx_group }};
 
 worker_processes  {{ nginx_worker_processes }};
