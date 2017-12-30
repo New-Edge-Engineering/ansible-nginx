@@ -12,6 +12,9 @@ nginx_freebsd_pkg:
 nginx_suse_pkg:
   - nginx
 
+nginx_alpine_pkg:
+  - nginx
+
 yum_epel_repo: epel
 yum_base_repo: base
 
@@ -25,7 +28,7 @@ nginx_binary_name: "nginx"
 nginx_service_name: "{{nginx_binary_name}}"
 nginx_conf_dir: "{% if ansible_os_family == 'FreeBSD' %}/usr/local/etc/nginx{% else %}/etc/nginx{% endif %}"
 
-nginx_user: "{% if ansible_os_family == 'RedHat' or ansible_os_family == 'Suse' %}nginx{% elif ansible_os_family == 'Debian' %}www-data{% elif ansible_os_family == 'FreeBSD' %}www{% endif %}"
+nginx_user: "{% if ansible_os_family == 'Debian' %}www-data{% elif ansible_os_family == 'FreeBSD' %}www{% else %}nginx{% endif %}" # default includes Alpine, RetHat & Suse families
 nginx_owner: "{{nginx_user}}"
 nginx_group: "{{nginx_user}}"
 
@@ -66,6 +69,6 @@ nginx_remove_configs: []
 nginx_auth_basic_files: {}
 nginx_remove_auth_basic_files: []
 
-nginx_daemon_mode: "on"
+nginx_daemon_mode: "{% if ansible_connection == 'docker' %}off{% else %}on{% endif %}"
 
-nginx_version: 1.10.2
+nginx_version: 1.12.2

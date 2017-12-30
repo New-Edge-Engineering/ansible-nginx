@@ -3,6 +3,7 @@
 - name: restart nginx
   debug: msg="checking config first"
   changed_when: True
+  when: nginx_daemon_mode == "on"
   notify:
     - check nginx configuration
     - restart nginx - after config check
@@ -10,6 +11,7 @@
 - name: reload nginx
   debug: msg="checking config first"
   changed_when: True
+  when: nginx_daemon_mode == "on"
   notify:
     - check nginx configuration
     - reload nginx - after config check
@@ -34,3 +36,4 @@
     daemon_reload: yes
     name: nginx
     state: restarted
+  when: nginx_daemon_mode == "on"

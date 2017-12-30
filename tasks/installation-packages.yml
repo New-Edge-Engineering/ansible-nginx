@@ -40,3 +40,10 @@
   with_items: "{{ nginx_suse_pkg }}"
   when: ansible_os_family == "Suse"
   tags: [packages,nginx]
+
+- name: Install the nginx packages
+  apk: name={{ item }} state=present
+  with_items: "{{ nginx_alpine_pkg }}"
+  environment: "{{ nginx_env }}"
+  when: ansible_os_family == "Alpine"
+  tags: [packages,nginx]
